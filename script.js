@@ -1,7 +1,6 @@
 // Add JavaScript code for your web site here and call it from index.html.
 
 /*** Dark Mode ***
-  
   Purpose:
   - Use this starter code to add a dark mode feature to your website.
 
@@ -24,12 +23,13 @@ const toggleLightMode = () => {
 themeButton.addEventListener("click", toggleLightMode);
 /*** Form Handling ***/
 
+// Form//
+
 // Step 1: Add your query for the submit RSVP button here
 let submitButton = document.getElementById("rsvp-button")
 let count = 3;
-const addParticipant = (event) => {
+const addParticipant = (person) => {
     // Step 2: Write your code to manipulate the DOM here
-    event.preventDefault();
     let firstname = document.getElementById("first-name").value;
     let lasttname = document.getElementById("last-name").value;
     let email = document.getElementById("email").value;
@@ -42,14 +42,12 @@ const addParticipant = (event) => {
     let newCount = document.createElement("p");
     newCount.id = "rsvp-count";
     newCount.textContent = "⭐" + count + "people have RSVP'd to this event!";
-    
-
     let participantContainer = document.getElementById("rsvp-participants");
     participantContainer.appendChild(newParticipant);
     participantContainer.appendChild(newCount);
 }
 // Step 3: Add a click event listener to the submit RSVP button here
-submitButton.addEventListener("click", addParticipant);
+
 
 /*** Form Validation ***
   Purpose:
@@ -65,39 +63,50 @@ submitButton.addEventListener("click", addParticipant);
 // Step 1: We actually don't need to select the form button again -- we already did it in the RSVP code above.
 
 // Step 2: Write the callback function
-const validateForm = () => {
-
+const validateForm = (event) => {
+  event.preventDefault();
   let containsErrors = false;
-
   var rsvpInputs = document.getElementById("rsvp-form").elements;
-  // TODO: Loop through all inputs
-  for (let i = 0; i < rsvpInputs,length; i++) {
+  
+  //Person thing//
+  let person = {
+    firstname : document.getElementById("first-name").value, 
+    lastname : document.getElementById("last-name").value, 
+    email : document.getElementById("email").value
+  };
 
+  // Loop through all inputs
+  for (let i = 0; i < rsvpInputs.length; i++) {
+    if (rsvpInputs[i].value.length < 2) {
+      containsErrors = true;
+      rsvpInputs[i].classList.add("error");
+    } else {
+      rsvpInputs[i].classList.remove("error");
+    }
   }
-
-  // TODO: Inside loop, validate the value of each input
-  if (rsvpInputs[i].value.length < 2 ) {
+  // Stretch feature///
+  let emailInput = document.getElementById("email");
+  if (!emailInput.value.includes('@')) {
     containsErrors = true;
-    rsvpInputs[i].classList.add("error");
+    emailInput.classList.add("error");
   } else {
-    rsvpInputs[i].classList.remove("error");
+    emailInput.classList.remove("error");
   }
 
-  // TODO: If no errors, call addParticipant() and clear fields
+  // If no errors, add participant and clear fields
   if (containsErrors == false) {
     addParticipant();
     for (let i = 0; i < rsvpInputs.length; i++) {
-      rsvpInputs[i].vallue = "";
+      rsvpInputs[i].value = "";
     }
   }
-
 }
-// Step 3: Replace the form button's event listener with a new one that calls validateForm()
 submitButton.addEventListener("click", validateForm);
-
-
 /*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
 /*** Success Modal [PLACEHOLDER] [ADDED IN UNIT 9] ***/
+
+
+// Extra Javascript with help from MDN Webdocs, AI, and CSS Tricks//
 
 /* Scroll Fade animtion ****
 This part is for the event details. I wanted something interesting for animatons besides the parallax and modal
@@ -122,9 +131,11 @@ document.querySelectorAll('.event-details h3').forEach(heading => {
   });
 });
 
-/*** Parallax ***/
+/*** hero parallax ***/
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
   const heroImg = document.getElementById('header-img');
-  heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
+  if (heroImg) {
+    heroImg.style.transform = `translateY(${scrollY * 0.4}px)`;
+  }
 });

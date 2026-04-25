@@ -7,7 +7,6 @@
 -Hex 3: 
 *****/
 
-
 /* Global CSS Styles (for the whole page)  */
 * {
   box-sizing: border-box;
@@ -37,7 +36,26 @@ p{
 #about , #what-to-expect, #rsvp {
   padding: 48px 0;
 }
-
+/*** Links Section ***
+***/
+/***
+a {
+  text-decoration: none;
+  color: #38BDF8;
+}
+a:link {
+  color: #38BDF8;
+}
+a:hover{
+  color: #0FD9B8;
+}
+a:visited{
+  color: #7AB8D4;
+}
+a:active{
+  color: cyan;
+}
+****/
 /* Hero content with the parllax effect*/
 .hero {
   position: relative;
@@ -53,6 +71,7 @@ p{
   bottom: 80px;
   left: 80px;
   z-index: 2;
+  font-family: 'Brawler', sans-serif;
 }
 
 .hero-text h1 {
@@ -124,11 +143,20 @@ p{
   position: relative;
   width: 100vw;
   left: 50%;
-  transform: translateX(50%);
+  transform: translateX(-50%);
   height: 90vh;
   overflow: hidden;
 }
-
+.event-details {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 25px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
 .event-text {
   position: absolute;
   bottom: 80px;
@@ -145,25 +173,18 @@ p{
   transform: translateZ(0);
 }
 .event-text h2 {
-  font-size: 72px;
+  font-size: 64px;
   color: #F0F9FF;
   margin-bottom: 12px;
-  text-shadow:  0 2px 12px rgba(0, 0, 0, 0.6);
+  text-shadow:  0 2px 12px rgba(0, 0, 0, 0.10);
 }
-.hero-text h4 {
+.event-text h4 {
   color: #E0F2FE;
   font-size: 20px;
   max-width: 560px;
   margin-bottom:24px;
-  text-shadow:  0 2px 8px rgba(0, 0, 0, 0.5);
+  text-shadow:  0 2px 8px rgba(0, 0, 0, 0.10);
   border-bottom: none;
-}
-.event-details {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 32px;
-  margin-bottom: 56px;
 }
 .event-details h3 {
   color: #7AB8D4;
@@ -177,11 +198,6 @@ p{
   width: 280px;
   flex-shrink: 0;
   border-radius: 8px;
-}
-.event-details {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .event-details.visible {
   opacity: 1;
@@ -276,6 +292,163 @@ p{
   font-family: 'Zain' , sans-serif;
   border-radius: 5px;
 }
+/*** RSVP Section ****/
+#rsvp {
+  background-color: #0A1A2E;
+  padding: 64px 48px;
+  margin: 48px 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.rsvp-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 50px;
+}
+.rsvp-para {
+  width: 55%;
+  padding-right: 10px;
+  font-family: 'Brawler', sans-serif;
+  font-size: small;
+}
+.rsvp-participants {
+  width: 45%;
+  padding-right: 10px;
+}
+#rsvp-form input {
+  background-color: #0a1a2e;
+  border:  1px solid #38bdf8;
+  color: #f0f9ff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-family: 'Zain', sans-serif;
+  font-size: 16px;
+  display: block;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+#rsvp-form label {
+  color: #7ab8d4;
+  font-family: 'Zain', sans-serif;
+  display: block;
+
+}
+
+.error {
+  border: red solid 2px;
+  background-color: lightpink;
+}
+#rsvp-form {
+  color: #F0F9FF;
+  font-family: 'Zain', sans-serif;
+}
+.rsvp-para {
+  color: #F0F9FF;
+  font: 'Zain', sans-serif;
+  font-size: large;
+}
+#rsvp-button {
+  background-color: #38BDF8;
+  color: #040D18;
+  font-family: 'Brawler', serif;
+  font-size: medium;
+  border-radius: 8px;
+  padding: 10px 24px;
+}
+#rsvp-button:hover {
+  background-color: #0FD9B8;
+  color: #040D18;
+  font-family: 'Brawler', serif;
+  font-size: medium;
+  border-radius: 8px;
+  padding: 10px 24px;
+}
+/*** Footer ***
+***/
+
+.footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0a1a2e;
+  padding: 40px 48px;
+  margin-top: 48px;
+}
+
+#footer-details footer {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+#footer-details a {
+  color: #E0F2FE;
+  font-family: 'Zain', sans-serif;
+  font-size: 16.5px;
+  text-decoration: none;
+}
+
+#footer-details a:hover {
+  color: #38BDF8;
+}
+
+/*
+#footer { 
+  display: flex;
+  flex-direction: row;
+  align-content: space-evenly;
+  gap: 50px;
+  position: relative;
+  width: 100%;
+}
+.footer-link {
+  color: #F0F9FF;
+  font-family: 'Zain' sans-serif;
+  font-size: medium;
+  text-decoration: none
+}
+.footer-link :hover {
+  align-content: space-around;
+  padding: 50px;
+  color: #38BDF8;
+  font-family: 'Zain', sans-serif;
+  font-size: medium;
+  text-decoration: none; 
+}
+***/
+
+/* Helpful Links */
+.helpful-links-container {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  gap: 40px;
+  border: 1px solid #BAE6FD;
+  border-radius: 12px;
+}
+.helpful-links-container h3 {
+  font-family: 'Brawler', sans-serif;
+  font-size: large;
+  color: #38BDF8;
+}
+.helpful-links-container h3:hover {
+  font-family: 'Brawler', sans-serif;
+  font-size: large;
+  color: #E0F2FE;
+}
+.helpful-links-container .link {
+  text-decoration: none;
+}
+
 /* Light Mode CSS */
 /**************
 - Since my site is originally in dark mode, I wanted to create a light mode that was easy on the eyes
@@ -294,7 +467,6 @@ p{
   color: #0A1A2E;
   font-family: 'Brawler' , serif;
 }
-
 /* Light Mode Navigation Bar*/
 .light-mode .navbar {
   background-color: #E0F2FE;
@@ -336,14 +508,28 @@ p{
   color: #0A1A2E;
 }
 /* Light mode block (i dont know what else to call this) */
-.light-mode .block p,
-.light-mode .block h3 {
-  color: #0A1A2E;
-}
-.light-mode .block {
-  background-color: #E0F2FE;
+
+.light-mode .helpful-links-container {
+  display: flex;
+  flex-direction: row;
+  padding: 30px;
+  gap: 40px;
+  background-color: #0284C7;
   border: 1px solid #BAE6FD;
-  border-radius: 6px;
+  border-radius: 12px;
+
+}
+.light-mode .helpful-links-container h3
+.light-mode .links-header {
+  color: #0A1A2E;
+  text-decoration: none;
+}
+.light-mode .link {
+  color: #0a1a2e;
+  border: 1px solid #BAE6FD;
+  border-radius: 8px;
+  text-decoration: none;
+
 }
 /* Light mode theme button*/
 .light-mode #theme-button {
@@ -357,17 +543,28 @@ p{
 }
 
 /* Light Mode RSVP */
+.light-mode h2 {
+  color: #F0F9FF;
+}
+.light-mode #rsvp {
+ background-color:#0A1A2E;
+}
+
 .light-mode #rsvp-form input {
   background-color: #E0F2FE;
   border:  1px solid #38BDF8;
   color: #0A1A2E;
 }
 .light-mode #rsvp-form label {
-  color: #0A1A2E;
+  color: #E0F2FE;
 }
 .light-mode #rsvp-button {
+  background-color: #F0F9FF;
+  color: #0A1A2E;
+  
+}
+.light-mode .rsvp-container {
   background-color: #0A1A2E;
-  color: #F0F9FF;
 }
 /* Light mode footer*/
 .light-mode #footer-details a {
@@ -378,12 +575,16 @@ p{
   font-size: medium;
   text-decoration: none; 
 }
+/*
 .light-mode #footer-details a:hover {
   color: #38BDF8;
 }
 .light-mode .block h3:hover {
   color:  #38BDF8;
 }
+*/
+
+
 /* Light mode CTA Buttons*/
 .light-mode .btn-primary {
   background-color: #040D18;
@@ -416,122 +617,6 @@ p{
   border: #0A1A2E 2px solid;
 }
 
-/*** footer ***
-***/
-.footer { 
-  display: flex;
-  flex-direction: row;
-  align-content: space-around;
-  gap: 30px;
-  position: relative;
-  width: 100%;
-}
-#footer-details a {
-  align-content: space-around;
-  padding: 50px;
-  color: #F0F9FF;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: medium;
-  text-decoration: none; 
-}
-#footer-details a:hover {
-  align-content: space-around;
-  padding: 50px;
-  color: #38BDF8;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: medium;
-  text-decoration: none; 
-}
-/*** Links Section ***
-***/
-a {
-  text-decoration: none;
-  color: #38BDF8;
-}
-a:link {
-  color: #38BDF8;
-}
-a:hover{
-  color: #0FD9B8;
-}
-a:visited{
-  color: #7AB8D4;
-}
-a:active{
-  color: cyan;
-}
-
-/*** RSVP Section ****/
-.rsvp-container {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  width: 100%;
-  padding-bottom: 50px;
-}
-.rsvp-para {
-  width: 55%;
-  padding-right: 10px;
-}
-
-.rsvp-participants {
-  width: 45%;
-  padding-right: 10px;
-}
-
-#rsvp-form input {
-  background-color: #0a1a2e;
-  border:  1px solid #38bdf8;
-  color: #f0f9ff;
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-family: 'Zain', sans-serif;
-  font-size: 16px;
-  display: block;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  width: 100%;
-  max-width: 400px;
-}
-#rsvp-form label {
-  color: #7ab8d4;
-  font-family: 'Zain', sans-serif;
-  display: block;
-
-}
-
-.error {
-  border: red solid 2px;
-  background-color: lightpink;
-}
-
-#rsvp-form {
-  color: #F0F9FF;
-  font-family: 'Zain', sans-serif;
-
-}
-.rsvp-para {
-  color: #F0F9FF;
-  font: 'Zain', sans-serif;
-  font-size: large;
-}
-#rsvp-button {
-  background-color: #38BDF8;
-  color: #040D18;
-  font-family: 'Brawler', serif;
-  font-size: medium;
-}
-
-/*** Schedule Section ***
-  
-  Purpose:
-  - Add style rules for your website's Schedule section
-
-  When To Modify:
-  - [ ] Project 3 (OPTIONAL)
-  - [ ] Project 4 (STRETCH FEATURE) 
-  - [ ] Any time after
-***/
 
 /*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
 /*** Success Modal [PLACEHOLDER] [ADDED IN UNIT 9] ***/

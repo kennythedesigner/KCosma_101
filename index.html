@@ -41,7 +41,7 @@
             <h2>About the Event</h2>
             <p>
                 The Logic Layer is Southeast Michigan's first conference dedicated to the designers behind B2B, SaaS, and AI-powered products. While most design events celebrate visual craft and consumer brands, we're here for the designers solving complex workflows, enterprise systems, and the human side of machine intelligence.
-                This event brings together product designers, UX leads, design systems engineers, and design-adjacent roles — PMs, researchers, and content strategists who are tired of advice built for B2C and ready for conversations that reflect the work they actually do every day.
+                This event brings together product designers, UX leads, design systems engineers, and design-adjacent roles  PMs, researchers, and content strategists who are tired of advice built for B2C and ready for conversations that reflect the work they actually do every day.
                 Whether you're designing a 14-step onboarding flow for an enterprise platform, building a component library from scratch, or figuring out how to make AI outputs feel trustworthy to a skeptical user this conference was made for you.
             </p>
         </div>
@@ -62,10 +62,10 @@
         -->
         <div class="event-container">
             <img id="event-photo" src="img/michigancentral.jpg" alt="Michigan Central Hero Image"/>
-        </div>
-        <div class="event-text">
-            <h2>Event Schedule</h2>
-            <h4>One full day. Three sessions. Zero Fluff.</h4>
+            <div class="event-text">
+                <h2>Event Schedule</h2>
+                <h4>One full day. Three sessions. Zero Fluff.</h4>
+            </div>
         </div>
         <div id="event-detail-container">
             <div class="event-details">
@@ -84,12 +84,12 @@
         <div id="event-detail-container">
             <div class="event-details">
                 <img alt="Image description" src="img/UXgroupworking.png"/>
-                <h3>1:00 PM — Workshop: Designing for Complexity</h3>
+                <h3>1:00 PM Workshop: Designing for Complexity</h3>
                 <p>
                     Roll up your sleeves for an afternoon workshop built around the real challenges
                     of B2B and SaaS design. Choose from hands-on sessions covering design systems at
                     scale, AI interface patterns, and enterprise onboarding flows. Each session is
-                    led by practicing designers who are solving these problems right now — not
+                    led by practicing designers who are solving these problems right now not
                     teaching from a textbook.
                 </p>
             </div>
@@ -97,12 +97,12 @@
         <div id="event-detail-container">
             <div class="event-details">
                 <img alt="Image description" src="img/techevent.png"/>
-                <h3>5:00 PM — Community Mixer: The After Layer</h3>
+                <h3>5:00 PM Community Mixer: The After Layer</h3>
                 <p>
                     End the day by connecting with the designers, researchers, PMs, and design
                     leaders you've been in the room with all day. The Logic Layer Mixer is an
                     informal networking session designed to turn a conference into a community.
-                    Southeast Michigan's B2B and SaaS design scene is growing — come meet the
+                    Southeast Michigan's B2B and SaaS design scene is growing  come meet the
                     people building it.
                 </p>
             </div>
@@ -118,9 +118,9 @@
             <p id="rsvp-count">⭐ 3 people have RSVP'd to this event!</p>
             <div class="rsvp-container">
                 <div class="rsvp-para">
-                    Join one of the biggest and best designer
+                    Join one of the biggest and best designer conferneces within the midwest. Come join fellow Tech CEOs, Designers, and product builders alike at The Logic Layer conference.
                 </div>
-                <div class="rsvp-participants">
+                <div id="rsvp-participants">
                     <p>🎟️ Top 10 Tech CEOs have already RSVP'd.</p>
                     <p>🎟️ Designers from 20 different states has RSVP'd.</p>
                     <p>🎟️ Previous Designer of the Year Award Recipent has RSVP'd.</p>
@@ -129,10 +129,10 @@
             <!-- Sign RSVP Form -->
             <div class="form-container">
                 <form id="rsvp-form" title="rsvp-form">
-                    <label for="name">Enter your First name: </label>
-                    <input type="text" name="name" id="name" required />
-                    <label for="name">Enter your Last name: </label>
-                    <input type="text" name="name" id="name" required />
+                    <label for="first-name">Enter your First name: </label>
+                    <input type="text" name="name" id="first-name" required />
+                    <label for="last-name">Enter your Last name: </label>
+                    <input type="text" name="name" id="last-name" required />
                     <label for="email">Enter your email:</label>
                     <input type="text" name="email" id="email" required />
                 </form>
@@ -152,30 +152,33 @@
         - [ ] Project 4 (STRETCH FEATURE)
         - [ ] Any time between / after
         -->
-        <h2>Helpful Links</h2>
+        <div id="helpful-links">
+            <div class="helpful-links-container">
+                <h2 class="links-header">Helpful Links</h2>
+                <a class="link" href="https://www.alanbagi.com/blog/b2b-ux-design">
+                    <article>
+                        <h3>B2B UX Tips</h3>
+                        <p>This is where you will gind B2B UX Tips and best practices</p>
+                    </article>
+                </a>
+                <a class="link" href="https://www.linkedin.com/pulse/what-i-learned-saas-ux-design-while-building-socially-abhijit-saha-pnp7fg">
+                    <article>
+                        <h3>SaaS UX Tips</h3>
+                        <p>This is where you will find SaaS UX Tips and best practices</p>
+                    </article>
+                </a>
+                <a class="link" href="https://uxpilot.ai/blogs/enterprise-ux-design">
+                    <article>
+                        <h3>Enterprise UX tips</h3>
+                        <p>This is where you will find Enterprise UX Tips and best practices</p>
+                    </article>
+                </a>
+            </div>
+        </div>
         <!-- This <a> block is one link. Copy and paste all 6 lines to create another link. -->
-        <a class="block" href="https://www.alanbagi.com/blog/b2b-ux-design">
-            <article>
-                <h3>B2B UX Tips</h3>
-                <p>This is where you will find B2B UX Tips and best practices</p>
-            </article>
-        </a>
-        <a class="block" href="https://www.linkedin.com/pulse/what-i-learned-saas-ux-design-while-building-socially-abhijit-saha-pnp7fg">
-            <article>
-                <h3>SaaS UX Tips</h3>
-                <p>This is where you will find SaaS UX Tips and best practices</p>
-            </article>
-        </a>
-        <a class="block" href="https://uxpilot.ai/blogs/enterprise-ux-design">
-            <article>
-                <h3>Enterprise UX tips</h3>
-                <p>This is where you will find Enterprise UX Tips and best practices</p>
-            </article>
-        </a>
-
         <!-- footer [PLACEHOLDER] [ADDED IN UNIT 3] -->
         <div class="footer">
-            <div id="footer-details">
+            <div class="footer-details">
                 <footer>
                     <a href="#">Home</a>
                     <a href="#">About</a>
@@ -185,7 +188,17 @@
                 </footer>
             </div>
         </div>
+           <!-- success modal [PLACEHOLDER] [ADDED IN UNIT 9] -->
 
-        <script src="script.js"></script>
+        <!-- links
+        Purpose:
+        - Links to other resources related to the event
+
+        When To Modify:
+        - [ ] Project 2 (STRETCH FEATURE)
+        - [ ] Project 4 (STRETCH FEATURE)
+        - [ ] Any time between / after
+        -->
+        <script src="index.js"></script>
     </body>
 </html>
