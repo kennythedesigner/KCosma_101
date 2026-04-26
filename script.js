@@ -24,31 +24,27 @@ themeButton.addEventListener("click", toggleLightMode);
 /*** Form Handling ***/
 
 // Form//
-
 // Step 1: Add your query for the submit RSVP button here
 let submitButton = document.getElementById("rsvp-button")
-let count = 3;
+let count = 0;
 const addParticipant = (person) => {
     // Step 2: Write your code to manipulate the DOM here
-    let firstname = document.getElementById("first-name").value;
-    let lasttname = document.getElementById("last-name").value;
-    let email = document.getElementById("email").value;
-    let guestCounter = document.getElementById("rsvp-count").remove();
+    const rsvpCount = document.getElementById("rsvp-count")
+    if (rsvpCount) {
+      rsvpCount.remove();
+    }
     count = count + 1;
-
     let newParticipant = document.createElement("p");
-    newParticipant.textContent = firstname + " - " + email;
-    
+    newParticipant.textContent = `🎟️ ${person.firstname} ${person.lastname} - ${person.email}`;
     let newCount = document.createElement("p");
     newCount.id = "rsvp-count";
-    newCount.textContent = "⭐" + count + "people have RSVP'd to this event!";
+    newCount.textContent = "⭐ " + count + " people have RSVP'd to this event!";
     let participantContainer = document.getElementById("rsvp-participants");
     participantContainer.appendChild(newParticipant);
     participantContainer.appendChild(newCount);
-}
-// Step 3: Add a click event listener to the submit RSVP button here
+    toggleModal(person);
 
-
+  }
 /*** Form Validation ***
   Purpose:
   - Prevents invalid form submissions from being added to the list of participants.
@@ -95,7 +91,7 @@ const validateForm = (event) => {
 
   // If no errors, add participant and clear fields
   if (containsErrors == false) {
-    addParticipant();
+    addParticipant(person);
     for (let i = 0; i < rsvpInputs.length; i++) {
       rsvpInputs[i].value = "";
     }
@@ -104,6 +100,60 @@ const validateForm = (event) => {
 submitButton.addEventListener("click", validateForm);
 /*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
 /*** Success Modal [PLACEHOLDER] [ADDED IN UNIT 9] ***/
+/*** Modal ***
+  
+  Purpose:
+  - Use this starter code to add a pop-up modal to your website.
+
+  When To Modify:
+  - [ ] Project 9 (REQUIRED FEATURE)
+  - [ ] Project 9 (STRETCH FEATURE)
+  - [ ] Any time after
+***/
+
+const toggleModal = (person) => {
+    let modal = document.getElementById("success-modal");
+    let modalContent = document.getElementById("modal-text") // TODO
+    
+    // TODO: Update modal display to flex
+    modal.style.display = "flex";
+    
+
+    // TODO: Update modal text to personalized message
+    modalContent.textContent = `Thanks for RSVPing!, ${person.firstname}! We cant wait to see you at the Logic Layer!`;
+
+    // Animation 
+    let intervalId = setInterval(animateImage, 500);
+
+    // Set modal timeout to 5 seconds
+    setTimeout(() => {
+      modal.style.display = "none";
+    } , 5000) 
+}
+// Modal close button //
+let closeModalButton = document.getElementById("#close-modal-btn");
+const closeModal = () => {
+  let modal = document.getElementById("success-modal");
+  modal.style.display = "none";
+}
+closeModalButton.addEventListener("click", closeModal);
+
+
+// TODO: animation variables and animateImage() function
+let rotateFactor = 0;
+let modalImage = document.querySelector(".modal-container img");
+
+const animateImage = () => {
+  if (rotateFactor === 0) {
+    rotateFactor = -10;
+  } else {
+    rotateFactor = 0;
+  }
+  modalImage.style.transform = `rotate(${rotateFactor}deg)`;
+}
+
+
+
 
 
 // Extra Javascript with help from MDN Webdocs, AI, and CSS Tricks//
